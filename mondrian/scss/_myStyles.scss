@@ -1,0 +1,344 @@
+@import 'myColors';
+@mixin imgbgcolor {
+
+}
+
+@mixin clear {
+	margin: 0 !important;
+	padding: 0 !important;	
+}
+@mixin heading {
+	font-family: "Gill Sans", "Futura", sans-serif;
+	font-size: 2.5rem;
+	@include breakpoint(large) {
+		font-size: 8rem;
+	}
+}
+
+canvas {
+	@include clear;
+}
+
+.body {
+	@include clear;
+	font-family: "Bodoni", Garamond, serif;
+	font-size: 16px;
+}
+
+.row {
+	@include clear;
+	max-width: 100% !important;
+}
+
+h1 {
+	font-family: "Gill Sans", "Futura", sans-serif !important;
+	font-size: 2.5rem !important;
+	@include breakpoint(large) {
+		font-size: 8rem !important;
+	}
+}
+
+p {
+	font-family: "Bodoni", "Clarendon", "Garamond", "Georgia", "Cambria", serif !important;
+	font-size: 1.2rem !important;
+	line-height: 2rem !important;
+	@include breakpoint(large) {
+		font-size: 1.4rem !important;
+		line-height: 2.5rem !important;
+		padding: 1.5rem 0 !important;
+	}
+}
+
+.wrapper {
+	position: relative;
+}
+
+.cover {
+	background-color: $deepBlue;
+	background-image: url(../img/bookTitle.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+}
+
+.book {
+	background-color: white;
+	position: relative;
+	top: 95vh;
+	z-index: 10;
+}
+
+span {
+	//THIS IS A REMINDER TO PLAY WITH VISUAL QUOTE AND SUPERSCRIPT STYLES
+	// color: blue !important;
+}
+
+.heading {
+	.columns {
+		padding: 0;
+	}
+	.heading--chapter {
+		@extend .heading;
+		text-align: center;
+		position: relative;
+		z-index: 10;
+	}
+}
+	.heading--chapter__quotes {
+		margin-bottom: 5rem;
+		p {
+			font-size: 1.5rem !important;
+			line-height: 0rem !important;
+			padding: 1rem 0 !important;
+			text-align: center;
+		}
+		p span .pullquote {
+			font-family: Palatino !important;
+			font-size: 3rem;
+			color: blue;
+		}
+	}
+
+.heading--img__chapter7 {
+	object-fit: cover;
+	object-position: 0 0;
+	height: 10rem;
+	width: 100%;
+	margin-bottom: 2rem;
+	@include breakpoint(medium) {
+		height: 15rem;
+	}
+	@include breakpoint(large) {
+		height: 25rem;
+		margin-bottom: 5rem;
+	}
+}
+
+.subheading--chapter {
+	@extend .heading--chapter;
+	padding-bottom: 2rem !important;
+	.subheading--chapter__tape {
+		display: flex;
+		align-items: center;
+		background-color: $black;
+		height: 7rem;
+		p {
+			font-family: "Univers", "Futura", "Helvetica", sans-serif !important;
+			font-size: 2.5rem !important;
+			color: #ffffff !important;
+			margin: 0 0 0 2rem !important;
+			padding: 0 !important;
+		}
+	}
+}
+
+.blockquote {
+	border-left: solid 1rem $deepBlue;
+	p {
+		color: #444444;
+		margin-left: 1rem;
+	}
+	@include breakpoint(large) {
+		border-left: solid 2rem $deepBlue;
+		margin: 4rem 0 4rem 3rem;
+		padding: 1rem 0;
+		p {
+			margin-left: 1.5rem;
+			margin-right: 5rem;
+		}
+	}
+}
+
+.media {
+	margin-top: 2rem !important;
+	position: relative;
+	padding-bottom: 55rem !important;
+	width: 100%;
+	.media--bg {
+		position: absolute;
+		top: 1rem;
+		left: 0;
+		width: 100%;
+		.media--bg__tape {
+			background-color: $yellow;
+			height: 11rem;
+		}
+	}
+	.media--media {
+		display: block;
+		position: absolute;
+		top: 5rem;
+		left: 0;
+		text-align: center;
+		width: 100%;
+		.media--caption {
+			font-family: "Univers";
+			font-size: 1.1rem;
+			margin-top: .8rem;
+			text-align: center;
+			.media--caption__figure {
+				background-color: $deepBlue;
+				color: white;
+				margin: 0 auto .2rem auto;
+				padding: .2rem 0;
+				width: 8rem;
+			}
+		}
+	}
+}
+.media--audio {
+	@extend .media;
+	padding-bottom: 5rem !important;
+	.media--media {
+		top: 17rem;
+	}
+}
+.media--audio__container {
+	display: flex;
+	flex-direction: row;
+	background: $lightGray;
+	margin: 2rem 0 4rem 0;
+	width: 30rem;
+	height: 15rem;
+	.flex-wrapper {
+		flex-direction: column;
+		.flex-wrapper-top {
+			display: flex;
+			order: 1;
+			.media--audio__control {
+				display: flex;
+				flex: 1 0 0;
+				align-items: center;
+		  		justify-content: center;
+				background: $gray;
+				width: 10rem;
+				height: 10rem;
+				margin: 0;
+				img {
+					margin-left: .8rem;
+					width: 5rem;
+					height: 5rem;
+				}
+				button {
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					margin-left: .8rem;
+					outline: none;
+					width: 5rem;
+					height: 5rem;
+				}
+				.play {
+					background-image: url(../img/icons/button-play.png);
+				}
+				.pause {
+					background-image: url(../img/icons/button-pause.png);
+				}
+			}
+			.media--audio__description {
+				flex: 2 0 0;
+				width: 20rem;
+				height: 10rem;
+				margin: 0;
+				.media--audio__description-text {
+					margin: 2rem 1rem;
+					p {
+						margin: 0;
+						padding: 0 !important;
+						font-family: "Univers" !important;
+						font-size: 1rem !important;
+						line-height: 1.8rem !important;
+					}
+				}
+			}
+		}
+		.flex-wrapper-bottom {
+			display: flex;
+			order: 2;
+			flex-direction: column;
+			background: $yellow;
+			width: 30rem;
+			.media--audio__position {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 3rem;
+				#timeline {
+					background: $lightGray;
+					border-radius: 1rem;
+					margin: 0 2rem;
+					width: 390px;
+					height: 16px;
+					#slider {
+						background: $black;
+						border-radius: 50%;
+						width: 16px;
+						height: 16px;
+					}
+				}
+			}
+			.media__audio--time {
+				// border: 1px solid black;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				padding: 0 1rem;
+				height: 2rem;
+				width: 100%;
+				.media__audio--time-start {
+					text-align: left;
+				}
+				.media__audio--time-end {
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+.media--video {
+	@extend .media;
+	padding-bottom: 35rem !important;
+}
+@mixin essay--img {
+	height: 20rem;
+	margin: 0;
+	object-fit: contain;
+	object-position: 0 0;
+}
+.essay--img__square {
+	@include essay--img;
+	@include breakpoint(large) {
+		height: 40rem;
+		margin: 0;
+	}
+}
+.essay--img__portrait {
+	@include essay--img;
+	height: 25rem;
+	@include breakpoint(large) {
+		height: 40rem;
+		margin: 0;
+	}
+}
+.essay--img__landscape {
+
+}
+
+.lightbox {
+	background: rgba(0, 0, 0, .7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.lightbox img {
+	box-shadow: 0 0 2rem #111;
+	max-width: 90%;
+}
+
